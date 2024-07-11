@@ -7,13 +7,18 @@ my_travel_buddy/
 ├── templates/
 │   ├── index.html
 │   └── Simple.png
+
+
 ├── static/
 │   ├── man.jpeg
 │   ├── plane.jpg
 │   └── styles.css
+
+my_travel_buddy/
 ├── myapp.py
 ├── requirements.txt
 └── .env
+
 
 ## Prerequisites
 
