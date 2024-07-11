@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRCTC-AI Travel Agent</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="header-text">
+                <h2>Chat with IRCTC-AI Travel Agent</h2>
+                <p>We're online!</p>
+            </div>
+            <div class="close-btn">
+                <button>&times;</button>
+            </div>
+        </div>
+        <div id="chatbox" class="chat-box">
+            <div class="message bot-message">
+                <img src="{{ url_for('static', filename='plane.jpg') }}" alt="bot" class="avatar">
+                <p>Hi there! How can I assist you today?</p>
+            </div>
+        </div>
+        <form id="chat-form" class="input-container">
+            <input type="text" id="user-input" autocomplete="off" placeholder="Type your message here..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $('#chat-form').on('submit', function(event) {
+                event.preventDefault();
+                var userMessage = $('#user-input').val();
+                $('#chatbox').append('<div class="message user-message"><img src="{{ url_for('static', filename='man.jpeg') }}" alt="user" class="avatar"><p>' + userMessage + '</p></div>');
+                $('#user-input').val('');
+                $('#chatbox').scrollTop($('#chatbox')[0].scrollHeight);
+
+                $.ajax({
+                    url: '/chat',
+                    method: 'POST',
+                    data: { message: userMessage },
+                    success: function(response) {
+                        const flightDetails = formatFlightDetails(response.message);
+                        $('#chatbox').append('<div class="message bot-message"><img src="{{ url_for('static', filename='plane.jpg') }}" alt="bot" class="avatar"><div class="message-box">' + flightDetails + '</div></div>');
+                        $('#chatbox').scrollTop($('#chatbox')[0].scrollHeight);
+                    }
+                });
+            });
+        });
+
+        function formatFlightDetails(details) {
+            const lines = details.split('\n');
+            const formattedDetails = lines.map(line => {
+                return line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            }).join('<br>');
+            return formattedDetails;
+        }
+    </script>
+</body>
+</html>

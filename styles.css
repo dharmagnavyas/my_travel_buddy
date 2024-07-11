@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    perspective: 1000px;
+}
+
+.chat-container {
+    width: 400px;
+    height: 600px;
+    background-color: #FFFFFF;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 1s ease-in-out, float 3s infinite ease-in-out;
+    border: 1px solid #ddd;
+    transform-style: preserve-3d;
+    transform: rotateY(10deg);
+}
+
+.chat-header {
+    background: linear-gradient(135deg, #005c97 0%, #363795 100%);
+    color: #FFFFFF;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #6699CC;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.header-text {
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.header-text h2 {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.header-text p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #C0C0C0;
+}
+
+.close-btn button {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.close-btn button:hover {
+    transform: scale(1.2);
+}
+
+.chat-box {
+    padding: 20px;
+    height: 450px;
+    overflow-y: auto;
+    background-color: #F1F1F1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    animation: slideIn 0.3s ease;
+}
+
+.message p, .message-box {
+    margin: 0;
+    padding: 12px 20px;
+    border-radius: 20px;
+    max-width: 75%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    font-size: 0.95em;
+    line-height: 1.4em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.user-message {
+    flex-direction: row-reverse;
+    animation: slideInRight 0.3s ease;
+}
+
+.user-message p {
+    background-color: #FFD700;
+    margin-left: 10px;
+}
+
+.bot-message p, .message-box {
+    background-color: #ECECEC;
+    margin-right: 10px;
+}
+
+.message-box:hover, .message p:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 5px;
+}
+
+.input-container {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    background-color: #FFFFFF;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin-right: 10px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.input-container input:focus {
+    border-color: #0056b3;
+}
+
+.input-container button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #032A42;
+    color: #FFFFFF;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.input-container button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
