@@ -30,14 +30,15 @@ Ensure you have Python 3.7+ installed on your machine. You will also need to ins
 
 Create a `.env` file in the root directory of the project and add the following environment variables:
 
-```env
-SPOTIFY_CLIENT_ID=your_spotify_client_id
-SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
-SPOTIFY_REDIRECT_URI=your_spotify_redirect_uri
+```
+# .env file containing all API keys
 OPENAI_API_KEY=your_openai_api_key
+ANTHROPIC_API_KEY=your_anthropic_api_key
+TAVILY_API_KEY="your_tavily_api_key"
+LANGCHAIN_API_KEY="your_langchain_api_key"
 ```
 
-Replace `your_spotify_client_id`, `your_spotify_client_secret`, `your_spotify_redirect_uri`, and `your_openai_api_key` with your actual credentials.
+Replace `your_openai_api_key`, `your_anthropic_api_key`, `your_tavily_api_key`, and `your_langchain_api_key` with your actual credentials.
 
 ### Step 2: Install Dependencies
 
@@ -95,7 +96,7 @@ python-dotenv==1.0.1
 
 ## Acknowledgments
 
-- [Spotipy](https://spotipy.readthedocs.io/) - Python client for the Spotify Web API.
+
 - [OpenAI](https://openai.com/) - AI models powering the chatbot.
 - [Streamlit](https://streamlit.io/) - Framework for creating the web interface.
 
