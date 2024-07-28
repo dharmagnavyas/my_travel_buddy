@@ -84,7 +84,6 @@ Ensure the following dependencies are listed in your `requirements.txt`:
 ```plaintext
 spotipy==2.24.0
 openai==1.34.0
-streamlit==1.35.0
 langchain_openai==0.1.8
 langchain_community==0.2.4
 langchain.memory==0.2.9
@@ -98,6 +97,4 @@ python-dotenv==1.0.1
 
 
 - [OpenAI](https://openai.com/) - AI models powering the chatbot.
-- [Streamlit](https://streamlit.io/) - Framework for creating the web interface.
-
 ---
